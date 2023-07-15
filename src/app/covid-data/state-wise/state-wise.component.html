@@ -1,0 +1,73 @@
+<div class="container-fluid g-0">
+    <div class="state-list">
+        <ul>
+            <li (click)="onSelectionOfsate(state)" [ngClass]="{ 'active':state.active }"
+                *ngFor="let state of stateCode">
+                {{ state.value }}
+            </li>
+        </ul>
+    </div>
+    <div class="state-data" style="padding-left: 325px;">
+        <header class="py-3">
+            <span class="label">
+                <b>
+                    Population :
+                </b>
+            </span>
+            <span class="value" *ngIf="!nodata">
+                {{ stateData?.meta?.population }}
+            </span>
+            <span class="value" *ngIf="nodata">
+                No Data Found
+            </span>
+        </header>
+        <div class="p-3 d-flex justify-content-end">
+            <button type="button" class="btn modal-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Graph
+            </button>
+        </div>
+        <div class="p-3">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">District</th>
+                        <th scope="col">Confirmed</th>
+                        <th scope="col">Recovered</th>
+                        <th scope="col">Deaths</th>
+                        <th scope="col">Tested</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngIf="!nodata">
+                        <tr *ngFor="let district of districtData">
+                            <td>{{district.name}}</td>
+                            <td>{{district.confirmed}}</td>
+                            <td>{{district.recovered}}</td>
+                            <td>{{district.deaths}}</td>
+                            <td>{{district.tested}}</td>
+                        </tr>
+                    </ng-container>
+                    <ng-container *ngIf="nodata">
+                        <tr>
+                            <td class="text-center" rowspan="5">No Data Found</td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Graphical Representation</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <canvas id="scatterdChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

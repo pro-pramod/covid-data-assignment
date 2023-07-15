@@ -1,0 +1,66 @@
+.state-list {
+    position: fixed !important;
+    height: 100% !important;
+    width: 325px;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    ul {
+        padding-left: 0px !important;
+
+        li {
+            list-style: none !important;
+            font-size: 20px !important;
+            background: #2E3033;
+            color: white;
+            font-weight: 600;
+            padding: 12px 15px !important;
+            border: 1px solid #2E3033;
+            white-space: nowrap !important;
+            cursor: pointer !important;
+        }
+
+        li.active {
+            background: #005691;
+        }
+    }
+}
+
+.modal-button{
+    border-radius: 0px !important;
+    border-color: #005691;
+    background-color: #005691;
+    color: white !important;
+    padding: 10px 16px;
+}
+
+.state-data {
+    header {
+        border-bottom: 1px solid black;
+    }
+
+    .label {
+        padding: 25px 5px 25px 30px;
+        font-size: 24px;
+    }
+
+    .value {
+        padding: 25px 5px;
+        font-size: 24px;
+    }
+
+    .table {
+        tr {
+            th {
+                background: #005691 !important;
+                color: white !important;
+                font-weight: 600 !important;
+                font-size: 18px;
+                text-transform: uppercase !important;
+                white-space: nowrap !important;
+                padding: 14px !important;
+            }
+        }
+    }
+
+}
